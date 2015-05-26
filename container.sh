@@ -20,7 +20,7 @@ hammer repository create --name='wordpress' --organization="$ORG" --product='con
 hammer repository create --name='mysql' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.hub.docker.com' --docker-upstream-name='mysql'
 
 # Sync the images
-hammer product synchronize --organization "$ORG" --product "containers"
+hammer product synchronize --organization "$ORG" --name "containers"
 
 hammer content-view create --name "registry" --description "Sample Registry" --organization "$ORG"
 hammer content-view add-repository --organization "$ORG" --name "registry" --repository "rhel" --product "containers"

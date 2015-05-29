@@ -15,9 +15,9 @@ hammer lifecycle-environment create --organization "$ORG" --name "DEV" --descrip
 
 # create a container product
 hammer product create --name='containers' --organization="$ORG"
-hammer repository create --name='rhel' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.access.redhat.com' --docker-upstream-name='rhel'
-hammer repository create --name='wordpress' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.hub.docker.com' --docker-upstream-name='wordpress'
-hammer repository create --name='mysql' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.hub.docker.com' --docker-upstream-name='mysql'
+hammer repository create --name='rhel' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.access.redhat.com' --docker-upstream-name='rhel' --publish-via-http="true"
+hammer repository create --name='wordpress' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.hub.docker.com' --docker-upstream-name='wordpress' --publish-via-http="true"
+hammer repository create --name='mysql' --organization="$ORG" --product='containers' --content-type='docker' --url='https://registry.hub.docker.com' --docker-upstream-name='mysql' --publish-via-http="true"
 
 # Sync the images
 hammer product synchronize --organization "$ORG" --name "containers"
